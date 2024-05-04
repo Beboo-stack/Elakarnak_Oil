@@ -98,7 +98,7 @@ const Product = () => {
                 GRAY
               </p>
               <p className="font-bold mb-6">Time Left For Discont</p>
-              <div className="flex w-full md:w-full mx-auto justify-center items-center text-center gap-[20px] md:gap-[60px]">
+              <div className="flex w-full md:w-full mx-auto justify-center items-center text-center gap-[20px] md:gap-[30px] xl:gap-[60px]">
                 <div className="flex text-center text-sm md:text-lg justify-center items-center flex-col w-[18%] p-3 rounded-xl border-2 border-black">
                   <p>{timeLeft.days}</p>
                   Days
