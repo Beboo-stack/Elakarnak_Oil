@@ -1,4 +1,5 @@
 "use client";
+import { Repeat2, Share2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -52,7 +53,7 @@ const Product = () => {
 
   return (
     <section className="w-full mt-10">
-      <div className="max-w-[90%] mx-auto grid gap-8 grid-cols-2 justify-center items-start">
+      <div className="max-w-[90%] mx-auto grid gap-8 grid-cols-1 md:grid-cols-2 justify-center items-start">
         <div className="max-w-[600px] mx-auto grid gap-8 justify-center items-center">
           <div className="  ">
             <Image
@@ -91,31 +92,42 @@ const Product = () => {
                 38%
               </span>
             </p>
-            <div className="flex w-full flex-col mt-5">
+            <div className="flex max-w-xl overflow-hidden flex-col mt-5">
               <p className="font-bold ">color: Gray</p>
               <p className="cursor-pointer my-3 text-center py-3 px-[80px] rounded-2xl border-2 w-fit bg-white border-black">
                 GRAY
               </p>
-              <p className="font-bold">Time Left For Discont</p>
-              <div className="flex  w-full mx-auto justify-center items-center text-center gap-[60px]">
-                <div className="flex flex-col p-3 rounded-xl border-2 border-black">
+              <p className="font-bold mb-6">Time Left For Discont</p>
+              <div className="flex w-full md:w-full mx-auto justify-center items-center text-center gap-[20px] md:gap-[60px]">
+                <div className="flex text-center text-sm md:text-lg justify-center items-center flex-col w-[18%] p-3 rounded-xl border-2 border-black">
                   <p>{timeLeft.days}</p>
                   Days
                 </div>
-                <div className="flex flex-col p-3 rounded-xl border-2 border-black">
+                <div className="flex flex-col text-center text-sm md:text-lg justify-center items-center w-[18%] p-3 rounded-xl border-2 border-black">
                   <p>{timeLeft.hours}</p>
                   Hours
                 </div>
-                <div className="flex flex-col p-3 rounded-xl border-2 border-black">
+                <div className="flex flex-col text-center text-sm md:text-lg justify-center items-center w-[18%] p-3 rounded-xl border-2 border-black">
                   {" "}
                   <p>{timeLeft.minutes}</p>
                   Minutes
                 </div>
-                <div className="flex flex-col p-3 rounded-xl border-2 border-black">
+                <div className="flex flex-col text-center text-sm md:text-lg justify-center items-center w-[18%] p-3 rounded-xl border-2 border-black">
                   {" "}
                   <p>{timeLeft.seconds}</p>
                   Seconds
                 </div>
+              </div>
+              <p className=" text-2xl text-center my-8 text-white bg-black py-3 rounded-xl">
+                اضغط هنا للشراء
+              </p>
+              <div className="flex w-full gap-8">
+                <p className="cursor-pointer flex gap-2">
+                  <Repeat2 className=" w-11 " /> Compare
+                </p>
+                <p className="cursor-pointer flex gap-3">
+                  <Share2 /> Share Product
+                </p>
               </div>
             </div>
           </div>
