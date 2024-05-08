@@ -9,10 +9,10 @@ import Form from "./Form";
 import Link from "next/link";
 
 const Product = () => {
-  const COUNTDOWN_TARGET = new Date("2024-05-09T01:55:00").getTime(); // Replace with your target date
+  const COUNTDOWN_TARGET = new Date("2024-05-09T02:11:00").getTime(); // Replace with your target date
 
   const getTimeLeft = () => {
-    const totalTimeLeft = COUNTDOWN_TARGET - new Date();
+    const totalTimeLeft = Math.max(0, COUNTDOWN_TARGET - new Date().getTime());
     const days = Math.floor(totalTimeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((totalTimeLeft / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((totalTimeLeft / (1000 * 60)) % 60);
@@ -42,15 +42,6 @@ const Product = () => {
   }, []);
 
   // const router = useRouter();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    quantity: 1,
-    address: "",
-    total: 7600,
-    selectedOption: "دفع عند الاستلام",
-  });
 
   const images1 = [
     {
