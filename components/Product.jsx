@@ -24,7 +24,7 @@ const Product = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       const updateTimeLeft = getTimeLeft();
-      setTimeLeft(updateTimeLeft());
+      setTimeLeft(updateTimeLeft);
 
       if (
         updateTimeLeft.days === 0 &&
