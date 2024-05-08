@@ -23,7 +23,17 @@ const Product = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(getTimeLeft());
+      const updateTimeLeft = getTimeLeft();
+      setTimeLeft(updateTimeLeft());
+
+      if (
+        updateTimeLeft.days === 0 &&
+        updateTimeLeft.hours === 0 &&
+        updateTimeLeft.minutes === 0 &&
+        updateTimeLeft.seconds === 0
+      ) {
+        clearInterval(timer);
+      }
     }, 1000);
 
     return () => {
@@ -41,15 +51,6 @@ const Product = () => {
     total: 7600,
     selectedOption: "دفع عند الاستلام",
   });
-
-  const images = [
-    "/1.jpeg",
-    "/2.jpeg",
-    "/3.jpeg",
-    "/4.jpeg",
-    "/5.jpeg",
-    "/6.jpeg",
-  ];
 
   const images1 = [
     {
