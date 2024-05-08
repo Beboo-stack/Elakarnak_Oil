@@ -19,7 +19,7 @@ const Product = () => {
     const seconds = Math.floor((totalTimeLeft / 1000) % 60);
     return { days, hours, minutes, seconds };
   };
-  const [timeLeft, setTimeLeft] = useState(() => getTimeLeft());
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,7 +39,7 @@ const Product = () => {
     return () => {
       clearInterval(timer);
     };
-  });
+  }, []);
 
   // const router = useRouter();
 
