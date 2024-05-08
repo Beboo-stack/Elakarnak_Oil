@@ -9,7 +9,7 @@ import Form from "./Form";
 import Link from "next/link";
 
 const Product = () => {
-  const COUNTDOWN_TARGET = new Date("2024-05-09T01:44:00").getTime(); // Replace with your target date
+  const COUNTDOWN_TARGET = new Date("2024-05-09T02:55:00").getTime(); // Replace with your target date
 
   const getTimeLeft = () => {
     const totalTimeLeft = COUNTDOWN_TARGET - new Date();
