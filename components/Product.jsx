@@ -39,6 +39,7 @@ const Product = () => {
     return () => {
       clearInterval(timer);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // const router = useRouter();
@@ -70,6 +71,22 @@ const Product = () => {
     },
     {
       category: "black",
+      src: "/7.jpeg",
+    },
+    {
+      category: "black",
+      src: "/7.jpeg",
+    },
+    {
+      category: "white",
+      src: "/7.jpeg",
+    },
+    {
+      category: "white",
+      src: "/7.jpeg",
+    },
+    {
+      category: "white",
       src: "/7.jpeg",
     },
   ];
@@ -148,12 +165,14 @@ const Product = () => {
                   ? "GRAY"
                   : selectedCategory === "black"
                   ? "BLACK"
+                  : selectedCategory === "white"
+                  ? "WHITE"
                   : "ALL"}
               </p>
               <div className="flex w-full gap-3 ">
                 <p
                   onClick={() => setSelectedCategory("gray")}
-                  className={`cursor-pointer my-3 text-center py-3 px-[30px] lg:px-[80px] rounded-2xl border-2 w-fit bg-white border-gray-300 ${
+                  className={`cursor-pointer my-3 text-center py-3 px-[30px] lg:px-[50px] rounded-2xl border-2 w-fit bg-white border-gray-300 ${
                     selectedCategory === "gray" && "border-gray-900"
                   }`}
                 >
@@ -161,11 +180,19 @@ const Product = () => {
                 </p>
                 <p
                   onClick={() => setSelectedCategory("black")}
-                  className={`cursor-pointer my-3 text-center py-3 px-[30px] lg:px-[80px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
+                  className={`cursor-pointer my-3 text-center py-3 px-[30px] lg:px-[50px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
                     selectedCategory === "black" && "border-gray-900"
                   }`}
                 >
                   BLACK
+                </p>
+                <p
+                  onClick={() => setSelectedCategory("white")}
+                  className={`cursor-pointer my-3 text-center py-3 px-[30px] lg:px-[50px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
+                    selectedCategory === "white" && "border-gray-900"
+                  }`}
+                >
+                  WHITE
                 </p>
               </div>
               <p className="font-bold mb-6">Time Left For Discont</p>

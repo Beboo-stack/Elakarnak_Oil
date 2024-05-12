@@ -14,7 +14,7 @@ const Form = () => {
     phone: "",
     quantity: 1,
     address: "",
-    total: 250,
+    total: 299,
   });
 
   const schema = z.object({
@@ -26,20 +26,47 @@ const Form = () => {
   });
 
   const Increase = () => {
-    setFormData((prev) => ({
-      ...prev,
-      quantity: prev.quantity + 1,
-      total: 250 * (prev.quantity + 1),
-    }));
+    setFormData((prev) => {
+      const newQuantity = prev.quantity + 1;
+      let newTotal = 299;
+
+      if (newQuantity === 2) {
+        newTotal = 569; // Adjusted price for quantity 2
+      } else if (newQuantity === 3) {
+        newTotal = 779; // Adjusted price for quantity 3
+      } else if (newQuantity > 3) {
+        newTotal = newQuantity * 260;
+      }
+
+      return {
+        ...prev,
+        quantity: newQuantity,
+        total: newTotal,
+      };
+    });
   };
+  console.log(formData.total);
 
   const Decrease = () => {
     if (formData.quantity >= 2) {
-      setFormData((prev) => ({
-        ...prev,
-        quantity: prev.quantity - 1,
-        total: 250 * (prev.quantity - 1),
-      }));
+      setFormData((prev) => {
+        const newQuantity = prev.quantity - 1;
+        let newTotal = 299;
+
+        if (newQuantity === 2) {
+          newTotal = 569; // Adjusted price for quantity 2
+        } else if (newQuantity === 3) {
+          newTotal = 779; // Adjusted price for quantity 3
+        } else if (newQuantity > 3) {
+          newTotal = newQuantity * 260;
+        }
+
+        return {
+          ...prev,
+          quantity: newQuantity,
+          total: newTotal,
+        };
+      });
     }
   };
 
