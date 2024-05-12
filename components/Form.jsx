@@ -45,7 +45,6 @@ const Form = () => {
       };
     });
   };
-  console.log(formData.total);
 
   const Decrease = () => {
     if (formData.quantity >= 2) {
