@@ -12,9 +12,12 @@ const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    quantity: 1,
+    quantity: 0,
     address: "",
-    total: 299,
+    total: 0,
+    white: 0,
+    black: 0,
+    gray: 0,
   });
 
   const schema = z.object({
@@ -132,27 +135,69 @@ const Form = () => {
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex justify-between items-center overflow-hidden">
-                <div className="flex flex-col justify-center items-center">
-                  <h2 className="text-lg">عدد القطع</h2>
-                  <div className="flex justify-start items-center gap-5">
-                    <button
-                      type="button"
-                      className="cursor-pointer text-[30px] text-center self-center w-[30px]"
-                      onClick={Decrease}
-                    >
-                      -
-                    </button>
-                    <h2 className="text-lg">{formData.quantity} </h2>
-                    <button
-                      type="button"
-                      className="w-[30px] cursor-pointer text-[30px]   "
-                      onClick={Increase}
-                    >
-                      +
-                    </button>
+                <div className="flex flex-col w-3/4 justify-start items-start">
+                  <div className="flex flex-col justify-center items-center">
+                    <h2 className="text-lg">عدد قطع الابيض</h2>
+                    <div className="flex justify-start items-center gap-5">
+                      <button
+                        type="button"
+                        className="cursor-pointer text-[30px] text-center self-center w-[30px]"
+                        onClick={Decrease}
+                      >
+                        -
+                      </button>
+                      <h2 className="text-lg">{formData.quantity} </h2>
+                      <button
+                        type="button"
+                        className="w-[30px] cursor-pointer text-[30px]   "
+                        onClick={Increase}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col justify-center items-center">
+                    <h2 className="text-lg">عدد قطع الاسود</h2>
+                    <div className="flex justify-start items-center gap-5">
+                      <button
+                        type="button"
+                        className="cursor-pointer text-[30px] text-center self-center w-[30px]"
+                        onClick={Decrease}
+                      >
+                        -
+                      </button>
+                      <h2 className="text-lg">{formData.quantity} </h2>
+                      <button
+                        type="button"
+                        className="w-[30px] cursor-pointer text-[30px]   "
+                        onClick={Increase}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col justify-center items-center">
+                    <h2 className="text-lg">عدد قطع البني</h2>
+                    <div className="flex justify-start items-center gap-5">
+                      <button
+                        type="button"
+                        className="cursor-pointer text-[30px] text-center self-center w-[30px]"
+                        onClick={Decrease}
+                      >
+                        -
+                      </button>
+                      <h2 className="text-lg">{formData.quantity} </h2>
+                      <button
+                        type="button"
+                        className="w-[30px] cursor-pointer text-[30px]   "
+                        onClick={Increase}
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-col justify-center items-center">
+                <div className="flex flex-col  w-1/4 justify-center items-center">
                   <h2 className="text-xl">السعر النهائي</h2>
                   <p className="text-[20px] font-bold">
                     {" "}

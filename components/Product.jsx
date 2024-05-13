@@ -1,4 +1,5 @@
 "use client";
+import * as React from "react";
 import { Repeat2, Share2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect } from "react";
@@ -7,8 +8,21 @@ import { useRouter } from "next/router";
 import { emailjs } from "emailjs-com";
 import Form from "./Form";
 import Link from "next/link";
+import Autoplay from "embla-carousel-autoplay";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Product = () => {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
+
   const COUNTDOWN_TARGET = new Date("2024-05-09T02:11:00").getTime(); // Replace with your target date
 
   const getTimeLeft = () => {
@@ -39,7 +53,7 @@ const Product = () => {
     return () => {
       clearInterval(timer);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // const router = useRouter();
@@ -117,7 +131,37 @@ const Product = () => {
   return (
     <section className="w-full my-10">
       <div className="max-w-[90%] mx-auto grid gap-8 grid-cols-1 md:grid-cols-2 justify-center items-start">
-        <div className="max-w-[600px] mx-auto grid gap-8 justify-center items-center">
+        {/* Slider On Small Screens */}
+        <Carousel
+          plugins={[plugin.current]}
+          className="w-full sm:max-w-sm flex mx-auto md:hidden  justify-center items-center relative"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+        >
+          <CarouselContent>
+            {filteredImages.map((item, index) => (
+              <CarouselItem key={index}>
+                <div className="p-1">
+                  <Card>
+                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <Image
+                        src={item.src}
+                        alt=""
+                        className="w-full rounded-xl"
+                        width={500}
+                        height={500}
+                      />
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute top-[calc(50% - 80px)] left-0 -translate-y-1/2" />
+          <CarouselNext className="absolute top-[calc(50% + 80px)] right-0 -translate-y-1/2" />
+        </Carousel>
+        {/* View On Large Screens */}
+        <div className="hidden md:grid max-w-[600px] mx-auto  gap-8 justify-center items-center">
           <div className="">
             <Image
               src={bigImage.src}
@@ -172,7 +216,7 @@ const Product = () => {
               <div className="flex w-full gap-3 ">
                 <p
                   onClick={() => setSelectedCategory("gray")}
-                  className={`cursor-pointer my-3 text-center py-3 px-[30px] lg:px-[50px] rounded-2xl border-2 w-fit bg-white border-gray-300 ${
+                  className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[25px] lg:px-[42px] xl:px-[60px] rounded-2xl border-2 w-fit bg-white border-gray-300 ${
                     selectedCategory === "gray" && "border-gray-900"
                   }`}
                 >
@@ -180,7 +224,7 @@ const Product = () => {
                 </p>
                 <p
                   onClick={() => setSelectedCategory("black")}
-                  className={`cursor-pointer my-3 text-center py-3 px-[30px] lg:px-[50px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
+                  className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[25px] lg:px-[42px] xl:px-[60px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
                     selectedCategory === "black" && "border-gray-900"
                   }`}
                 >
@@ -188,7 +232,7 @@ const Product = () => {
                 </p>
                 <p
                   onClick={() => setSelectedCategory("white")}
-                  className={`cursor-pointer my-3 text-center py-3 px-[30px] lg:px-[50px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
+                  className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[25px] lg:px-[42px] xl:px-[60px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
                     selectedCategory === "white" && "border-gray-900"
                   }`}
                 >
