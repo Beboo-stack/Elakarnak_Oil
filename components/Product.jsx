@@ -60,48 +60,110 @@ const Product = () => {
 
   const images1 = [
     {
-      category: "gray",
-      src: "/1.jpeg",
+      src: "/Towel 1 2 3 2.jpg",
     },
     {
-      category: "gray",
-      src: "/2.jpeg",
+      src: "/Towel 1 2 3.jpg",
     },
     {
-      category: "gray",
-      src: "/3.jpeg",
+      category: "summerVibes",
+      src: "/SummerVibes (1).jpg",
     },
     {
-      category: "black",
-      src: "/4.jpeg",
+      category: "summerVibes",
+      src: "/SummerVibes (2).jpg",
     },
     {
-      category: "black",
-      src: "/5.jpeg",
+      category: "summerVibes",
+      src: "/SummerVibes (3).jpg",
     },
     {
-      category: "black",
-      src: "/6.jpeg",
+      category: "summerVibes",
+      src: "/SummerVibes (4).jpg",
     },
     {
-      category: "black",
-      src: "/7.jpeg",
+      category: "summerVibes",
+      src: "/SummerVibes (5).jpg",
     },
     {
-      category: "black",
-      src: "/7.jpeg",
+      category: "summerVibes",
+      src: "/SummerVibes (6).jpg",
     },
     {
-      category: "white",
-      src: "/7.jpeg",
+      category: "summerVibes",
+      src: "/SummerVibes (7).jpg",
     },
     {
-      category: "white",
-      src: "/7.jpeg",
+      category: "helloSummer",
+      src: "/HelloSummer (1).jpg",
     },
     {
-      category: "white",
-      src: "/7.jpeg",
+      category: "helloSummer",
+      src: "/HelloSummer (2).jpg",
+    },
+    {
+      category: "helloSummer",
+      src: "/HelloSummer (3).jpg",
+    },
+    {
+      category: "helloSummer",
+      src: "/HelloSummer (4).jpg",
+    },
+    {
+      category: "helloSummer",
+      src: "/HelloSummer (5).jpg",
+    },
+    {
+      category: "helloSummer",
+      src: "/HelloSummer (6).jpg",
+    },
+    {
+      category: "helloSummer",
+      src: "/HelloSummer (7).jpg",
+    },
+    {
+      category: "helloSummer",
+      src: "/HelloSummer (8).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (1).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (10).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (2).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (3).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (4).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (5).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (6).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (7).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (8).jpg",
+    },
+    {
+      category: "itsSummer",
+      src: "/itsSummer (9).jpg",
     },
   ];
 
@@ -115,11 +177,11 @@ const Product = () => {
   });
 
   const features = [
-    "الشنطة مصنوعة من خامة المكروفيبر",
-    " الشنطة فيها 3 اماكن عشان تنظم متعلقاتكم اليومية",
-    "حزام الشنطة قابل للتوسيع يصل الي متر و ربع",
-    "مبطنة بالداخل بخامة PU واللون البرتقالي العصري",
-    "الوان الشنطة هتناسب جميع الاوقات",
+    "الفوطة معمولة بألوان وديزاينز مختلفة هتخليكي مميزة علي البحر",
+    " خامتها Ultra-soft Microfiber ودة الي بيخليها ناعمة جدا علي جلدك وبتنشف بسرعة",
+    "حجمها حلو جدا 140× 70",
+    "وفنفس الوقت خفيفة ومش هتاخد اي مكان في شنطتك",
+    "الوان الفوطة هتناسب جميع الاوقات",
   ];
 
   const [bigImage, setBigImage] = useState(images1[0]);
@@ -143,11 +205,11 @@ const Product = () => {
               <CarouselItem key={index}>
                 <div className="p-1">
                   <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                    <CardContent className="w-full flex aspect-square items-center justify-center p-6">
                       <Image
                         src={item.src}
                         alt=""
-                        className="w-full rounded-xl"
+                        className="w-full h-full rounded-xl"
                         width={500}
                         height={500}
                       />
@@ -166,7 +228,7 @@ const Product = () => {
             <Image
               src={bigImage.src}
               alt=""
-              className="w-[800px] rounded-xl"
+              className="w-[800px] h-[600px] rounded-xl"
               width={800}
               height={500}
             />
@@ -177,7 +239,7 @@ const Product = () => {
                 alt=""
                 onClick={() => handleSmallImageClick(item)}
                 src={item.src}
-                className="w-full rounded-xl cursor-pointer"
+                className="w-full h-full rounded-xl cursor-pointer"
                 width={500}
                 height={500}
                 key={id}
@@ -189,54 +251,54 @@ const Product = () => {
         <div className="flex-1 flex flex-col justify-center items-start">
           <div className="grid gap-3 w-full">
             <div className="flex justify-between">
-              <h2 className="font-bold text-3xl">The Ultimate bag (gray)</h2>
+              <h2 className="font-bold text-3xl">beach towel فوطة البحر</h2>
               {/* The Heart Icon */}
             </div>
             <p>No Reviews Yet </p>
             <p className="font-bold text-xl">
-              250 <span className="font-normal">EGP</span>{" "}
+              299 <span className="font-normal">EGP</span>{" "}
               <span className="text-gray-400 font-normal">
                 | <s>400</s>
               </span>{" "}
               <span className="ml-3 font-normal text-sm py-1 px-2 bg-green-300 text-center rounded-full">
-                38%
+                25%
               </span>
             </p>
             <div className="flex max-w-xl overflow-hidden flex-col mt-5">
               <p className="font-bold ">
-                color:
-                {selectedCategory === "gray"
-                  ? "GRAY"
-                  : selectedCategory === "black"
-                  ? "BLACK"
-                  : selectedCategory === "white"
-                  ? "WHITE"
+                Design:
+                {selectedCategory === "summerVibes"
+                  ? " Summer Vibes (Yellow)"
+                  : selectedCategory === "helloSummer"
+                  ? " Hello Summer (Blue)"
+                  : selectedCategory === "itsSummer"
+                  ? " It's Summer (Pink)"
                   : "ALL"}
               </p>
               <div className="flex w-full gap-3 ">
                 <p
-                  onClick={() => setSelectedCategory("gray")}
-                  className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[25px] lg:px-[42px] xl:px-[60px] rounded-2xl border-2 w-fit bg-white border-gray-300 ${
+                  onClick={() => setSelectedCategory("summerVibes")}
+                  className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[15px] lg:px-[35px] xl:px-[55px] rounded-2xl border-2 w-fit bg-white border-gray-300 ${
                     selectedCategory === "gray" && "border-gray-900"
                   }`}
                 >
-                  GRAY
+                  Summer Vibes (Yellow)
                 </p>
                 <p
-                  onClick={() => setSelectedCategory("black")}
-                  className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[25px] lg:px-[42px] xl:px-[60px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
+                  onClick={() => setSelectedCategory("helloSummer")}
+                  className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[15px] lg:px-[35px] xl:px-[55px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
                     selectedCategory === "black" && "border-gray-900"
                   }`}
                 >
-                  BLACK
+                  Hello Summer (Blue)
                 </p>
                 <p
-                  onClick={() => setSelectedCategory("white")}
-                  className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[25px] lg:px-[42px] xl:px-[60px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
+                  onClick={() => setSelectedCategory("itsSummer")}
+                  className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[15px] lg:px-[35px] xl:px-[55px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
                     selectedCategory === "white" && "border-gray-900"
                   }`}
                 >
-                  WHITE
+                  It&apos;s Summer (Pink)
                 </p>
               </div>
               <p className="font-bold mb-6">Time Left For Discont</p>
@@ -273,18 +335,18 @@ const Product = () => {
                   <Share2 /> Share Product
                 </p>
               </div>{" "}
-              <h2 className="flex w-full justify-end text-3xl mt-8 mb-6">
-                من هاي لاين Ultimate شنطه
+              <h2 className="flex w-full text-end  text-3xl mt-8 mb-6">
+                Summer and Winter Store من beach towel فوطة البحر
               </h2>
               <p className="flex justify-end text-lg">
-                الشنطة فيها مميزات كتير هتسهل عليك يومك
+                الفوطة فيها مميزات كتر يخلوكي تشتريها الصيف دة
               </p>
               {features.map((item, id) => (
                 <div
                   className="flex felx-col w-full justify-end gap-2"
                   key={id}
                 >
-                  <p className="flex text-center justify-center items-center gap-3 text-xl h-[70px]">
+                  <p className="flex text-end justify-center items-center gap-3 text-xl h-[70px]">
                     {item}
                     <svg
                       className="w-8"
@@ -308,8 +370,7 @@ const Product = () => {
                 </div>
               ))}
               <p className="flex justify-end text-end text-[18px]">
-                :مقاس الشنطه <br /> العرض 31 سم <br /> الطول 16 سم <br /> طول
-                الحزام 125 سم قابل للتضيق
+                :مقاس الفوطة <br /> العرض 70 سم <br /> الطول 140 سم <br />
               </p>
               <Form />
             </div>
