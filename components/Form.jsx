@@ -133,7 +133,7 @@ const Form = () => {
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex justify-between items-center overflow-hidden">
-                <div className="flex flex-col w-3/4 justify-start items-start">
+                <div className="flex flex-col w-1/2 justify-start items-start">
                   <div className="flex flex-col justify-center items-center">
                     <h2 className="text-lg">عددالقطع</h2>
                     <div className="flex justify-start items-center gap-5">
@@ -155,7 +155,7 @@ const Form = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col  w-1/4 justify-center items-center">
+                <div className="flex flex-col  w-1/2 justify-center items-center">
                   <h2 className="text-xl">السعر النهائي</h2>
                   <p className="text-[20px] font-bold">
                     {" "}
