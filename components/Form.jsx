@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import emailjs from "@emailjs/browser";
 import React from "react";
 import { useState, useRef } from "react";
 
@@ -12,12 +13,9 @@ const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    quantity: 0,
+    quantity: 1,
     address: "",
-    total: 0,
-    white: 0,
-    black: 0,
-    gray: 0,
+    total: 299,
   });
 
   const schema = z.object({
@@ -38,7 +36,7 @@ const Form = () => {
       } else if (newQuantity === 3) {
         newTotal = 779; // Adjusted price for quantity 3
       } else if (newQuantity > 3) {
-        newTotal = newQuantity * 260;
+        newTotal = newQuantity * 260; // Adjusted price for quantity greater than 3
       }
 
       return {
@@ -60,7 +58,7 @@ const Form = () => {
         } else if (newQuantity === 3) {
           newTotal = 779; // Adjusted price for quantity 3
         } else if (newQuantity > 3) {
-          newTotal = newQuantity * 260;
+          newTotal = newQuantity * 260; // Adjusted price for quantity greater than 3
         }
 
         return {
@@ -112,7 +110,7 @@ const Form = () => {
             name: "",
             phone: "",
             address: "",
-            total: 250,
+            total: 299,
             quantity: 1,
           });
           router.push("/successfull");
@@ -137,47 +135,7 @@ const Form = () => {
               <div className="flex justify-between items-center overflow-hidden">
                 <div className="flex flex-col w-3/4 justify-start items-start">
                   <div className="flex flex-col justify-center items-center">
-                    <h2 className="text-lg">عدد قطع الابيض</h2>
-                    <div className="flex justify-start items-center gap-5">
-                      <button
-                        type="button"
-                        className="cursor-pointer text-[30px] text-center self-center w-[30px]"
-                        onClick={Decrease}
-                      >
-                        -
-                      </button>
-                      <h2 className="text-lg">{formData.quantity} </h2>
-                      <button
-                        type="button"
-                        className="w-[30px] cursor-pointer text-[30px]   "
-                        onClick={Increase}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex flex-col justify-center items-center">
-                    <h2 className="text-lg">عدد قطع الاسود</h2>
-                    <div className="flex justify-start items-center gap-5">
-                      <button
-                        type="button"
-                        className="cursor-pointer text-[30px] text-center self-center w-[30px]"
-                        onClick={Decrease}
-                      >
-                        -
-                      </button>
-                      <h2 className="text-lg">{formData.quantity} </h2>
-                      <button
-                        type="button"
-                        className="w-[30px] cursor-pointer text-[30px]   "
-                        onClick={Increase}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex flex-col justify-center items-center">
-                    <h2 className="text-lg">عدد قطع البني</h2>
+                    <h2 className="text-lg">عددالقطع</h2>
                     <div className="flex justify-start items-center gap-5">
                       <button
                         type="button"
