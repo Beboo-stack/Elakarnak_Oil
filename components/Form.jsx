@@ -1,9 +1,18 @@
 "use client";
+import * as React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import emailjs from "@emailjs/browser";
-import React from "react";
 import { useState, useRef } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import { z } from "zod";
 
@@ -16,6 +25,7 @@ const Form = () => {
     quantity: 1,
     address: "",
     total: 299,
+    selectedOption: "",
   });
 
   const schema = z.object({
@@ -24,6 +34,7 @@ const Form = () => {
     address: z.string().min(10),
     quantity: z.number().min(1),
     total: z.number().min(1),
+    selectedOption: z.string().min(1),
   });
 
   const Increase = () => {
@@ -69,10 +80,28 @@ const Form = () => {
       });
     }
   };
-
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  const options = [
+    {
+      label: "---اختر المحافظه---",
+      value: "",
+    },
+    {
+      label: "(55 جنيه) الجيزه",
+      value: "الجيزه",
+    },
+    {
+      label: "(55 جنيه) القاهره",
+      value: "القاهره",
+    },
+    {
+      label: "(65 جنيه) الاسكندرية",
+      value: "الاسكندرية",
+    },
+  ];
 
   const handleSelectedOption = (event) => {
     const selectedOption = event.target.value;
@@ -88,6 +117,10 @@ const Form = () => {
     try {
       const validatedData = schema.parse(formData);
 
+      const submitButton = document.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+
       const seviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
       const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
       const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
@@ -99,27 +132,39 @@ const Form = () => {
         address: formData.address,
         quantity: formData.quantity,
         total: formData.total,
+        selectedOption: formData.selectedOption,
       };
 
       if (!formData.name || !formData.phone) return;
 
-      emailjs
-        .send(seviceId, templateID, templateParams, publicKey)
-        .then(() => {
-          setFormData({
-            name: "",
-            phone: "",
-            address: "",
-            total: 299,
-            quantity: 1,
-          });
-          router.push("/successfull");
-        })
-        .catch((err) => {
-          console.log(err);
+      const response = await emailjs.send(
+        seviceId,
+        templateID,
+        templateParams,
+        publicKey
+      );
+
+      if (response.status === 200) {
+        setFormData({
+          name: "",
+          phone: "",
+          address: "",
+          total: 299,
+          quantity: 1,
+          selectedOption: "",
         });
+        router.push("/successfull");
+      } else {
+        console.log(err);
+        submitButton.disabled = false;
+        submitButton.textContent = "اضغط هنا للشراء";
+      }
+      submitButton.textContent = "اضغط هنا للشراء";
+      submitButton.disabled = false;
     } catch (error) {
       console.error("Form validation failed:", error.errors);
+      submitButton.disabled = false;
+      submitButton.textContent = "اضغط هنا للشراء";
     }
   };
 
@@ -147,7 +192,7 @@ const Form = () => {
                       <h2 className="text-lg">{formData.quantity} </h2>
                       <button
                         type="button"
-                        className="w-[30px] cursor-pointer text-[30px]   "
+                        className="w-[30px] cursor-pointer text-[30px]"
                         onClick={Increase}
                       >
                         +
@@ -159,9 +204,29 @@ const Form = () => {
                   <h2 className="text-xl">السعر النهائي</h2>
                   <p className="text-[20px] font-bold">
                     {" "}
-                    {formData.total} <span>EGP</span>{" "}
+                    {formData.total} <span>EGP</span>
                   </p>
                 </div>
+              </div>
+              <div className="w-full">
+                <select
+                  required
+                  onChange={handleSelectedOption}
+                  className="w-full h-full rounded-lg border-gray-200  p-3 text-xl"
+                  name="options"
+                  placeholder="اختر المحافظه"
+                  id=""
+                >
+                  {options.map((option) => (
+                    <option
+                      value={option.value}
+                      key={option.value}
+                      className="w-full text-xl h-full gap-2 p-2 m-3"
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label className="sr-only" htmlFor="name">
@@ -216,7 +281,7 @@ const Form = () => {
               <div className="mt-4">
                 <button
                   type="submit"
-                  className=" text-2xl text-center my-8 text-white bg-black py-3 rounded-xl w-full"
+                  className={`text-2xl text-center my-8 text-white bg-black py-3 rounded-xl w-full disabled:cursor-not-allowed `}
                 >
                   اضغط هنا للشراء
                 </button>

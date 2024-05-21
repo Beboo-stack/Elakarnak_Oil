@@ -1,9 +1,4 @@
-import Product from "@/components/Product";
-
+"use client";
 export default function Home() {
-  return (
-    <div>
-      <Product />
-    </div>
-  );
+  return <div></div>;
 }

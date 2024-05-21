@@ -4,8 +4,6 @@ import { Repeat2, Share2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useRouter } from "next/router";
-import { emailjs } from "emailjs-com";
 import Form from "./Form";
 import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";
@@ -23,30 +21,44 @@ const Product = () => {
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
 
-  const COUNTDOWN_TARGET = new Date("2024-05-09T02:11:00").getTime(); // Replace with your target date
+  const TIMER_DURATION = 3600; // Duration of the timer in seconds (1 hour)
 
   const getTimeLeft = () => {
-    const totalTimeLeft = Math.max(0, COUNTDOWN_TARGET - new Date().getTime());
+    // Calculate remaining time until the next hour
+    const now = new Date();
+    const nextHourStart = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() + 1,
+      0,
+      0,
+      0
+    );
+    const totalTimeLeft = Math.max(0, nextHourStart.getTime() - now.getTime());
     const days = Math.floor(totalTimeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((totalTimeLeft / (1000 * 60 * 60)) % 24);
+    const hours = Math.floor(totalTimeLeft / (1000 * 60 * 60));
     const minutes = Math.floor((totalTimeLeft / (1000 * 60)) % 60);
     const seconds = Math.floor((totalTimeLeft / 1000) % 60);
-    return { days, hours, minutes, seconds };
+    return { hours, minutes, seconds, days };
   };
+
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const updateTimeLeft = getTimeLeft();
-      setTimeLeft(updateTimeLeft);
+      setTimeLeft(getTimeLeft());
 
       if (
-        updateTimeLeft.days === 0 &&
-        updateTimeLeft.hours === 0 &&
-        updateTimeLeft.minutes === 0 &&
-        updateTimeLeft.seconds === 0
+        timeLeft.days === 0 &&
+        timeLeft.hours === 0 &&
+        timeLeft.minutes === 0 &&
+        timeLeft.seconds === 0
       ) {
         clearInterval(timer);
+        setTimeout(() => {
+          setTimeLeft(getTimeLeft());
+          startTimer();
+        }, 1000);
       }
     }, 1000);
 
@@ -54,10 +66,14 @@ const Product = () => {
       clearInterval(timer);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); // Empty dependency array as timer doesn't rely on external state changes
 
-  // const router = useRouter();
-
+  const startTimer = () => {
+    setTimeout(() => {
+      setTimeLeft(getTimeLeft());
+      startTimer();
+    }, 1000);
+  };
   const images1 = [
     {
       src: "/Towel 1 2 3 2.jpg",
@@ -178,10 +194,12 @@ const Product = () => {
 
   const features = [
     "الفوطة معمولة بألوان وديزاينز مختلفة هتخليكي مميزة علي البحر",
-    " خامتها Ultra-soft Microfiber ودة الي بيخليها ناعمة جدا علي جلدك وبتنشف بسرعة",
+    "Ultra-Soft MicroFiber خامتها",
+    "و ده اللي بيخليها ناعمه جدا على جلدك وبتنشف بسرعة ",
     "حجمها حلو جدا 140× 70",
     "وفنفس الوقت خفيفة ومش هتاخد اي مكان في شنطتك",
     "الوان الفوطة هتناسب جميع الاوقات",
+    "خصم كبير لما تطلبي اكتر من فوطة",
   ];
 
   const [bigImage, setBigImage] = useState(images1[0]);
@@ -279,7 +297,7 @@ const Product = () => {
                 <p
                   onClick={() => setSelectedCategory("summerVibes")}
                   className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[15px] lg:px-[35px] xl:px-[55px] rounded-2xl border-2 w-fit bg-white border-gray-300 ${
-                    selectedCategory === "gray" && "border-gray-900"
+                    selectedCategory === "summerVibes" && "border-gray-900"
                   }`}
                 >
                   Summer Vibes (Yellow)
@@ -287,7 +305,7 @@ const Product = () => {
                 <p
                   onClick={() => setSelectedCategory("helloSummer")}
                   className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[15px] lg:px-[35px] xl:px-[55px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
-                    selectedCategory === "black" && "border-gray-900"
+                    selectedCategory === "helloSummer" && "border-gray-900"
                   }`}
                 >
                   Hello Summer (Blue)
@@ -295,7 +313,7 @@ const Product = () => {
                 <p
                   onClick={() => setSelectedCategory("itsSummer")}
                   className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[15px] lg:px-[35px] xl:px-[55px] rounded-2xl border-2 w-fit bg-white border-gray-300  ${
-                    selectedCategory === "white" && "border-gray-900"
+                    selectedCategory === "itsSummer" && "border-gray-900"
                   }`}
                 >
                   It&apos;s Summer (Pink)
@@ -319,7 +337,7 @@ const Product = () => {
                 <div className="flex flex-col text-center text-sm md:text-lg justify-center items-center w-[18%] p-3 rounded-xl border-2 border-black">
                   {" "}
                   <p>{timeLeft.seconds}</p>
-                  Seconds
+                  Sec
                 </div>
               </div>
               <Link href="#contact">
@@ -335,21 +353,21 @@ const Product = () => {
                   <Share2 /> Share Product
                 </p>
               </div>{" "}
-              <h2 className="flex w-full text-end  text-3xl mt-8 mb-6">
-                Summer and Winter Store من beach towel فوطة البحر
+              <h2 className="flex w-full justify-end text-end  text-3xl mt-8 mb-6">
+                beach towel فوطة البحر <br /> Summer and Winter Store من
               </h2>
-              <p className="flex justify-end text-lg">
+              <p className="flex justify-end text-lg text-end">
                 الفوطة فيها مميزات كتر يخلوكي تشتريها الصيف دة
               </p>
               {features.map((item, id) => (
                 <div
-                  className="flex felx-col w-full justify-end gap-2"
+                  className="flex flex-col w-full items-end justify-end text-right gap-2"
                   key={id}
                 >
-                  <p className="flex text-end justify-center items-center gap-3 text-xl h-[70px]">
+                  <p className="flex text-reverse justify-center items-center gap-3 text-xl ">
                     {item}
                     <svg
-                      className="w-8"
+                      className=" max-w-8"
                       xmlns="http://www.w3.org/2000/svg"
                       x="0px"
                       y="0px"
