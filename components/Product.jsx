@@ -76,110 +76,19 @@ const Product = () => {
   };
   const images1 = [
     {
-      src: "/Towel 1 2 3 2.jpg",
+      src: "/pics svg/1.jpg",
     },
     {
-      src: "/Towel 1 2 3.jpg",
+      src: "/pics svg/2.jpg",
     },
     {
-      category: "summerVibes",
-      src: "/SummerVibes (1).jpg",
+      src: "/pics svg/3.jpg",
     },
     {
-      category: "summerVibes",
-      src: "/SummerVibes (2).jpg",
+      src: "/pics svg/4.jpg",
     },
     {
-      category: "summerVibes",
-      src: "/SummerVibes (3).jpg",
-    },
-    {
-      category: "summerVibes",
-      src: "/SummerVibes (4).jpg",
-    },
-    {
-      category: "summerVibes",
-      src: "/SummerVibes (5).jpg",
-    },
-    {
-      category: "summerVibes",
-      src: "/SummerVibes (6).jpg",
-    },
-    {
-      category: "summerVibes",
-      src: "/SummerVibes (7).jpg",
-    },
-    {
-      category: "helloSummer",
-      src: "/HelloSummer (1).jpg",
-    },
-    {
-      category: "helloSummer",
-      src: "/HelloSummer (2).jpg",
-    },
-    {
-      category: "helloSummer",
-      src: "/HelloSummer (3).jpg",
-    },
-    {
-      category: "helloSummer",
-      src: "/HelloSummer (4).jpg",
-    },
-    {
-      category: "helloSummer",
-      src: "/HelloSummer (5).jpg",
-    },
-    {
-      category: "helloSummer",
-      src: "/HelloSummer (6).jpg",
-    },
-    {
-      category: "helloSummer",
-      src: "/HelloSummer (7).jpg",
-    },
-    {
-      category: "helloSummer",
-      src: "/HelloSummer (8).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (1).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (10).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (2).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (3).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (4).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (5).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (6).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (7).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (8).jpg",
-    },
-    {
-      category: "itsSummer",
-      src: "/itsSummer (9).jpg",
+      src: "/pics svg/5.jpg",
     },
   ];
 
@@ -193,13 +102,16 @@ const Product = () => {
   });
 
   const features = [
-    "الفوطة معمولة بألوان وديزاينز مختلفة هتخليكي مميزة علي البحر",
-    "Ultra-Soft MicroFiber خامتها",
-    "و ده اللي بيخليها ناعمه جدا على جلدك وبتنشف بسرعة ",
-    "حجمها حلو جدا 140× 70",
-    "وفنفس الوقت خفيفة ومش هتاخد اي مكان في شنطتك",
-    "الوان الفوطة هتناسب جميع الاوقات",
-    "خصم كبير لما تطلبي اكتر من فوطة",
+    "يحد من انتشار الصلع  ويكثف الشعر ",
+    "يقضي على التقصف والشعر الضعيف ويعمل على انبات شعر قوي في اماكن الفراغات في الرأس",
+    "يعطي الشعر لمعان وكثافة ونتائجه سريعة جدا من ٣ اسابيع الى شهر",
+    " يعمل على تكثيف شعر الحواجب والرموش واعطائهم مظهر جذاب",
+  ];
+
+  const ingredients = [
+    "بذور الخروع الجاميكي الاصليه",
+    "عشبة الروزماري",
+    "بذور الجوجوبا",
   ];
 
   const [bigImage, setBigImage] = useState(images1[0]);
@@ -269,21 +181,23 @@ const Product = () => {
         <div className="flex-1 flex flex-col justify-center items-start">
           <div className="grid gap-3 w-full">
             <div className="flex justify-between">
-              <h2 className="font-bold text-3xl">beach towel فوطة البحر</h2>
+              <h2 className="font-bold text-3xl text-end ">
+                زيت الخروع الجاميكي الاسود الأصلي
+              </h2>
               {/* The Heart Icon */}
             </div>
             <p>No Reviews Yet </p>
             <p className="font-bold text-xl">
-              299 <span className="font-normal">EGP</span>{" "}
+              600 <span className="font-normal">EGP</span>{" "}
               <span className="text-gray-400 font-normal">
-                | <s>400</s>
+                | <s>700</s>
               </span>{" "}
-              <span className="ml-3 font-normal text-sm py-1 px-2 bg-green-300 text-center rounded-full">
-                25%
+              <span className="ml-3 font-normal text-base py-1 px-2 bg-green-300 text-center rounded-full">
+                14%
               </span>
             </p>
             <div className="flex max-w-xl overflow-hidden flex-col mt-5">
-              <p className="font-bold ">
+              {/* <p className="font-bold ">
                 Design:
                 {selectedCategory === "summerVibes"
                   ? " Summer Vibes (Yellow)"
@@ -292,8 +206,8 @@ const Product = () => {
                   : selectedCategory === "itsSummer"
                   ? " It's Summer (Pink)"
                   : "ALL"}
-              </p>
-              <div className="flex w-full gap-3 ">
+              </p> */}
+              {/* <div className="flex w-full gap-3 ">
                 <p
                   onClick={() => setSelectedCategory("summerVibes")}
                   className={`cursor-pointer my-3 text-center py-3 px-[15px] md:px-[15px] lg:px-[35px] xl:px-[55px] rounded-2xl border-2 w-fit bg-white border-gray-300 ${
@@ -318,7 +232,7 @@ const Product = () => {
                 >
                   It&apos;s Summer (Pink)
                 </p>
-              </div>
+              </div> */}
               <p className="font-bold mb-6">Time Left For Discont</p>
               <div className="flex w-full md:w-full mx-auto justify-center items-center text-center gap-[20px] md:gap-[30px] xl:gap-[60px]">
                 <div className="flex text-center text-sm md:text-lg justify-center items-center flex-col w-[18%] p-3 rounded-xl border-2 border-black">
@@ -345,19 +259,12 @@ const Product = () => {
                   اضغط هنا للشراء
                 </p>
               </Link>
-              <div className="flex w-full gap-8">
-                <p className="cursor-pointer flex gap-2">
-                  <Repeat2 className=" w-11" /> Compare
-                </p>
-                <p className="cursor-pointer flex gap-3">
-                  <Share2 /> Share Product
-                </p>
-              </div>{" "}
-              <h2 className="flex w-full justify-end text-end  text-3xl mt-8 mb-6">
-                beach towel فوطة البحر <br /> Summer and Winter Store من
-              </h2>
+
+              <h1 className="flex w-full justify-end text-end  text-3xl mt-8 mb-6">
+                زيت الخروع الجاميكي الاسود الأصلي
+              </h1>
               <p className="flex justify-end text-lg text-end">
-                الفوطة فيها مميزات كتر يخلوكي تشتريها الصيف دة
+                الزيت فيه فوائد كتير يخلوك تشتريه
               </p>
               {features.map((item, id) => (
                 <div
@@ -387,9 +294,52 @@ const Product = () => {
                   </p>
                 </div>
               ))}
-              <p className="flex justify-end text-end text-[18px]">
-                :مقاس الفوطة <br /> العرض 70 سم <br /> الطول 140 سم <br />
+              <p className="flex justify-end text-end font-bold mt-6 text-[25px]">
+                : المكونات
               </p>
+              <ul className="">
+                {ingredients.map((item, id) => (
+                  <li
+                    className="flex justify-end items-center text-end text-[20px]"
+                    key={id}
+                  >
+                    {item} <span className="font-extrabold ml-2"> .</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="flex justify-end text-end mt-6 font-bold text-[25px]">
+                : طريقة الاستخدام
+              </p>
+              <ul className="flex flex-col gap-y-5">
+                <li className="flex justify-end items-center text-end text-[20px]">
+                  يستخدم كحمام زيت قبل الاستحمام بنصف ساعة والعمل على تدليك فروة
+                  الرأس برفق وخاصة اماكن الفراغات.
+                  <span className="font-extrabold ml-2"> .</span>
+                </li>
+                <li className="flex justify-end items-center text-end text-[20px]">
+                  يستخدم من مرتين الى ٣ مرات اسبوعيا حسب حالة الشعر و الهدف من
+                  الاستعمال <span className="font-extrabold ml-2"> .</span>
+                </li>
+              </ul>
+
+              <p className="flex justify-end text-end mt-6 font-bold text-[25px]">
+                : محتويات العبوة
+              </p>
+              <ul className="flex flex-col gap-y-5 ">
+                <li className="flex justify-end items-center text-end text-[20px]">
+                  تحتوي على زجاجة ١٢٠مل زيت خروع جاميكي
+                  <span className="font-extrabold ml-2"> .</span>
+                </li>
+                <li className="flex justify-end items-center text-end text-[20px]">
+                  و زجاجة زيت شعر ٣٠ مل هدية{" "}
+                  <span className="font-extrabold ml-2"> .</span>
+                </li>
+                <li className="flex justify-end items-center text-end text-[20px]">
+                  و دليل معلومات عن الزيت وطريقة الاستخدام مرخص من وزارة الصحة{" "}
+                  <span className="font-extrabold ml-2"> .</span>
+                </li>
+              </ul>
               <Form />
             </div>
           </div>

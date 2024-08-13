@@ -24,7 +24,7 @@ const Form = () => {
     phone: "",
     quantity: 1,
     address: "",
-    total: 299,
+    total: 700,
     selectedOption: "",
   });
 
@@ -40,15 +40,17 @@ const Form = () => {
   const Increase = () => {
     setFormData((prev) => {
       const newQuantity = prev.quantity + 1;
-      let newTotal = 299;
 
-      if (newQuantity === 2) {
-        newTotal = 569; // Adjusted price for quantity 2
-      } else if (newQuantity === 3) {
-        newTotal = 779; // Adjusted price for quantity 3
-      } else if (newQuantity > 3) {
-        newTotal = newQuantity * 260; // Adjusted price for quantity greater than 3
-      }
+      // if (newQuantity === 2) {
+      //   newTotal = 569; // Adjusted price for quantity 2
+      // } else if (newQuantity === 3) {
+      //   newTotal = 779; // Adjusted price for quantity 3
+      // } else if (newQuantity > 3) {
+      //   newTotal = newQuantity * 260; // Adjusted price for quantity greater than 3
+      // }
+
+     const newTotal = newQuantity * 700;  
+
 
       return {
         ...prev,
@@ -62,15 +64,16 @@ const Form = () => {
     if (formData.quantity >= 2) {
       setFormData((prev) => {
         const newQuantity = prev.quantity - 1;
-        let newTotal = 299;
 
-        if (newQuantity === 2) {
-          newTotal = 569; // Adjusted price for quantity 2
-        } else if (newQuantity === 3) {
-          newTotal = 779; // Adjusted price for quantity 3
-        } else if (newQuantity > 3) {
-          newTotal = newQuantity * 260; // Adjusted price for quantity greater than 3
-        }
+        // if (newQuantity === 2) {
+        //   newTotal = 569; // Adjusted price for quantity 2
+        // } else if (newQuantity === 3) {
+        //   newTotal = 779; // Adjusted price for quantity 3
+        // } else if (newQuantity > 3) {
+        //   newTotal = newQuantity * 260; // Adjusted price for quantity greater than 3
+        // }
+
+        const newTotal = newQuantity * 700;
 
         return {
           ...prev,
@@ -227,7 +230,7 @@ const Form = () => {
                     </option>
                   ))}
                 </select>
-              </div>
+              </div>  
               <div>
                 <label className="sr-only" htmlFor="name">
                   Name

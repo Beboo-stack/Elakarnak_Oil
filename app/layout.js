@@ -6,7 +6,7 @@ import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Summer and Winter Store",
+  title: "Elkarnak Oil",
   description: "Most Designed and Trendy Summer and Winter Store",
 };
 
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <Script
+        {/* <Script
           id="Meta_Pixel_Code"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
             style="display:none"
             src="https://www.facebook.com/tr?id=795632145876275&ev=PageView&noscript=1"
           />
-        </noscript>
+        </noscript> */}
       </head>
       <body className={inter.className}>{children}</body>
     </html>
