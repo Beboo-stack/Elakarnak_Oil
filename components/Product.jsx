@@ -76,19 +76,19 @@ const Product = () => {
   };
   const images1 = [
     {
-      src: "/pics svg/1.jpg",
+      src: "/pics svg/3.jpg",
     },
     {
       src: "/pics svg/2.jpg",
-    },
-    {
-      src: "/pics svg/3.jpg",
     },
     {
       src: "/pics svg/4.jpg",
     },
     {
       src: "/pics svg/5.jpg",
+    },
+    {
+      src: "/pics svg/1.jpg",
     },
   ];
 
@@ -188,12 +188,12 @@ const Product = () => {
             </div>
             <p>No Reviews Yet </p>
             <p className="font-bold text-xl">
-              600 <span className="font-normal">EGP</span>{" "}
+              700 <span className="font-normal">EGP</span>{" "}
               <span className="text-gray-400 font-normal">
-                | <s>700</s>
+                | <s>800</s>
               </span>{" "}
               <span className="ml-3 font-normal text-base py-1 px-2 bg-green-300 text-center rounded-full">
-                14%
+                12.5%
               </span>
             </p>
             <div className="flex max-w-xl overflow-hidden flex-col mt-5">
