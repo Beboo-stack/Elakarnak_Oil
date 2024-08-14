@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Elkarnak Oil",
-  description: "Most Designed and Trendy Summer and Winter Store",
+  description: "Original Jamaican black castor oil",
 };
 
 export default function RootLayout({ children }) {

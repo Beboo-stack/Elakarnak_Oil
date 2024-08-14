@@ -9,7 +9,7 @@ const page = () => {
         Thank You,
         <br /> Your Order Has Been Successflly Sent{" "}
       </h2>
-      <Link href="/summer-and-winter-store">
+      <Link href="/">
         <button className="text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 mt-6">
           Go to Home
         </button>
