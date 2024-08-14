@@ -87,9 +87,6 @@ const Product = () => {
     {
       src: "/pics svg/5.jpg",
     },
-    {
-      src: "/pics svg/1.jpg",
-    },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -190,10 +187,10 @@ const Product = () => {
             <p className="font-bold text-xl">
               700 <span className="font-normal">EGP</span>{" "}
               <span className="text-gray-400 font-normal">
-                | <s>800</s>
+                | <s>1000</s>
               </span>{" "}
               <span className="ml-3 font-normal text-base py-1 px-2 bg-green-300 text-center rounded-full">
-                12.5%
+                30% off
               </span>
             </p>
             <div className="flex max-w-xl overflow-hidden flex-col mt-5">

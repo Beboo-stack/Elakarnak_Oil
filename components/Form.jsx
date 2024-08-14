@@ -49,8 +49,7 @@ const Form = () => {
       //   newTotal = newQuantity * 260; // Adjusted price for quantity greater than 3
       // }
 
-     const newTotal = newQuantity * 700;  
-
+      const newTotal = newQuantity * 700;
 
       return {
         ...prev,
@@ -93,16 +92,116 @@ const Form = () => {
       value: "",
     },
     {
-      label: "(55 جنيه) الجيزه",
+      label: "الجيزه",
       value: "الجيزه",
     },
     {
-      label: "(55 جنيه) القاهره",
+      label: "القاهره",
       value: "القاهره",
     },
     {
-      label: "(65 جنيه) الاسكندرية",
+      label: "الاسكندرية",
       value: "الاسكندرية",
+    },
+    {
+      label: "الدقهلية",
+      value: "الدقهلية",
+    },
+    {
+      label: "الشرقية",
+      value: "الشرقية",
+    },
+    {
+      label: "المنوفية",
+      value: "المنوفية",
+    },
+    {
+      label: "القليوبية",
+      value: "القليوبية",
+    },
+    {
+      label: "الپحيرة",
+      value: "الپحيرة",
+    },
+    {
+      label: "الغربية",
+      value: "الغربية",
+    },
+    {
+      label: "بور سعيد",
+      value: "بور سعيد",
+    },
+    {
+      label: "دمياط",
+      value: "دمياط",
+    },
+    {
+      label: "الإسماعيلية",
+      value: "الإسماعيلية",
+    },
+    {
+      label: "السويس",
+      value: "السويس",
+    },
+    {
+      label: "كفر الشيخ",
+      value: "كفر الشيخ",
+    },
+    {
+      label: "الفيوم",
+      value: "الفيوم",
+    },
+    {
+      label: "بني سويف",
+      value: "بني سويف",
+    },
+    {
+      label: "مطروح",
+      value: "مطروح",
+    },
+    {
+      label: "شمال سيناء",
+      value: "شمال سيناء",
+    },
+    {
+      label: "جنوب سيناء",
+      value: "جنوب سيناء",
+    },
+    {
+      label: "المنيا",
+      value: "المنيا",
+    },
+    {
+      label: "أسيوط",
+      value: "أسيوط",
+    },
+    {
+      label: "سوهاج",
+      value: "سوهاج",
+    },
+    {
+      label: "قنا",
+      value: "قنا",
+    },
+    {
+      label: "البحر الأحمر",
+      value: "البحر الأحمر",
+    },
+    {
+      label: "الأقصر",
+      value: "الأقصر",
+    },
+    {
+      label: "أسوان",
+      value: "أسوان",
+    },
+    {
+      label: "الواحات",
+      value: "الواحات",
+    },
+    {
+      label: "الوادي الجديد",
+      value: "الوادي الجديد",
     },
   ];
 
@@ -224,19 +323,19 @@ const Form = () => {
                     <option
                       value={option.value}
                       key={option.value}
-                      className="w-full text-xl h-full gap-2 p-2 m-3"
+                      className="w-full text-xl text-end h-full gap-2 p-2 m-3"
                     >
                       {option.label}
                     </option>
                   ))}
                 </select>
-              </div>  
+              </div>
               <div>
                 <label className="sr-only" htmlFor="name">
                   Name
                 </label>
                 <input
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-end text-base"
                   placeholder="الاسم"
                   type="text"
                   name="name"
@@ -252,7 +351,7 @@ const Form = () => {
                     Phone
                   </label>
                   <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border-gray-200 p-3 text-end text-base"
                     placeholder="رقم التليفون"
                     type="tel"
                     onChange={handleChange}
@@ -270,7 +369,7 @@ const Form = () => {
                 </label>
 
                 <textarea
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-end text-base"
                   required
                   placeholder="العنوان بالكامل "
                   rows="8"
